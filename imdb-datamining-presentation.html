@@ -183,7 +183,6 @@ body{
 .pz-n{font-size:9.6px;font-weight:700;fill:#fff;opacity:.7;letter-spacing:.08em}
 .pz-t{font-size:13.6px;font-weight:800;fill:#fff;letter-spacing:-.01em}
 .pz-g{font-size:9.4px;font-weight:600;fill:#fff;opacity:.82}
-.pz-b{font-size:8.8px;font-weight:800;fill:#B45309}
 
 .statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px;max-width:820px}
 .kpi-h{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 18px}
@@ -513,7 +512,7 @@ body{
       <div class="kpi anim" style="--d:4"><div class="lbl">مجموع فروش</div><div class="val">۷۲.۳<small>میلیارد دلار</small></div><div class="foot">میانگین هر فیلم ۸۲.۹۶ میلیون</div></div>
     </div>
     <div class="bullets" style="margin-top:22px;max-width:960px">
-      <div class="bul anim" style="--d:5"><span class="bd"></span><p><b>توزیع امتیاز کمی به چپ چوله است.</b> چولگی <span class="tnum">−۰.۷۴</span> و میانگین ۶.۷۲ در برابر میانه ۶.۸۰؛ برخلاف فروش، دم بلندی در سمت امتیازهای بالا وجود ندارد.</p></div>
+      <div class="bul anim" style="--d:5"><span class="bd"></span><p><b>نمره‌ها کمی به سمت مقادیر بالا متمایل‌اند (چولگی منفی).</b> میانگین (<span class="tnum">۶.۷۲</span>) کمی از میانه (<span class="tnum">۶.۸۰</span>) کمتر است، که همین را نشان می‌دهد. برخلاف فروش، تعداد بسیار کمی از نمره‌های خیلی بالا وجود دارد و دنبالهٔ بلندی در سمت نمره‌های بالا نیست.</p></div>
       <div class="bul anim" style="--d:6"><span class="bd"></span><p><b>داده‌ی نامتوازن زمانی.</b> ۸۰٪ فیلم‌ها در دهه‌ی ۲۰۱۰ منتشر شده‌اند و سال ۲۰۱۶ به‌تنهایی ۲۹.۷٪ حجم نمونه را می‌سازد.</p></div>
       <div class="bul anim" style="--d:7"><span class="bd"></span><p><b>فروش روی زیرمجموعه محاسبه شده است.</b> ۱۲۸ رکورد فروش خالی است؛ همه‌ی آمار فروش در این ارائه بر پایه‌ی ۸۷۲ فیلم با داده‌ی موجود است.</p></div>
     </div>
@@ -771,8 +770,8 @@ body{
       <div class="stick-wrap anim" style="--d:3">
         <div class="stick">
           <span class="lbl">۰۳ — توزیع فروش</span>
-          <h3>فروش به‌شدت چوله است</h3>
-          <p>چولگی ۲.۵۹ و میانگین ۸۳ در برابر میانه ۴۸ میلیون. ۱۰٪ پرفروش‌ترین‌ها ۴۰.۵٪ کل گیشه را می‌سازند؛ داده‌ی فروش نیاز به مقیاس لگاریتمی یا مدل‌های مقاوم دارد.</p>
+          <h3>فروش به‌شدت نامتقارن است</h3>
+          <p>چولگی ۲.۵۹ (مثبت و بزرگ) نشان می‌دهد دنبالهٔ توزیع به سمت فروش‌های خیلی بالا کشیده شده است. میانگین ۸۳ میلیون در برابر میانه ۴۸ میلیون هم همین را تأیید می‌کند؛ چون چند فروش بسیار بالا میانگین را بالا برده‌اند. ۱۰٪ پرفروش‌ترین‌ها ۴۰.۵٪ کل گیشه را می‌سازند. به همین دلیل دادهٔ فروش را باید با مقیاس لگاریتمی تحلیل کرد یا از مدل‌های مقاوم (مقاوم به داده‌های پرت) استفاده کرد.</p>
         </div>
       </div>
       <div class="stick-wrap anim" style="--d:4">
@@ -1317,8 +1316,8 @@ function puzzle(){
     ["Runtime","عددی · ۶۶–۱۹۱ دقیقه",null],
     ["Rating","عددی · ۱.۹–۹.۰",null],
     ["Votes","عددی · چولگی شدید",null],
-    ["Revenue","عددی · میلیون دلار","۱۲۸ گمشده"],
-    ["Metascore","عددی · ۰ تا ۱۰۰","۶۴ گمشده"]
+    ["Revenue","عددی · میلیون دلار"],
+    ["Metascore","عددی · ۰ تا ۱۰۰"]
   ];
   const cols = 4, rows = 3, w = 185, h = 115, R = 18, pad = 20;
   const vE = [[1,-1,1],[1,1,-1],[-1,1,1]];
@@ -1371,10 +1370,6 @@ function puzzle(){
         '<text class="pz-n" x="' + cx + '" y="' + (cy-33) + '" text-anchor="middle" direction="rtl">' + fa(i+1) + '</text>' +
         '<text class="pz-t" x="' + cx + '" y="' + (cy-6) + '" text-anchor="middle" direction="ltr">' + d[0] + '</text>' +
         '<text class="pz-g" x="' + cx + '" y="' + (cy+14) + '" text-anchor="middle" direction="rtl">' + d[1] + '</text>';
-      if (d[2]){
-        body += '<rect x="' + (cx-33) + '" y="' + (cy+23) + '" width="66" height="14" rx="7" fill="#FEF3C7"/>' +
-                '<text class="pz-b" x="' + cx + '" y="' + (cy+33.2) + '" text-anchor="middle" direction="rtl">' + d[2] + '</text>';
-      }
       body += '</g>';
     }
   }
