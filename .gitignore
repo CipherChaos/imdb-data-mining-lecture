@@ -1,0 +1,25 @@
+# macOS / Windows / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.idea/
+.vscode/
+
+# generated exports & scratch files
+*.pdf
+*.log
+/screenshots/
+/tmp/
+
+# python (analysis scripts)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# env & secrets
+.env
+.env.*
