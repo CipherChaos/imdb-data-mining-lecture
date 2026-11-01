@@ -31,6 +31,13 @@ To export the deck: `Ctrl+P` → *Save as PDF*. The print stylesheet hides all U
 1. Cover · 2. Agenda · 3. Why this dataset · 4. Schema · 5. Data quality
 6–11. Exploratory analysis (KPIs, rating, runtime, year, genre) · 12–18. Deeper analysis (correlation, skew, top lists) · 19–20. Findings & thanks.
 
-## Presenters
+ — استاد: فرزانه استاداکبری
 
-بنیامین کشاورز · ملیکا قصاب‌نژاد · آرین بلندی — استاد: فرزانه استاداکبری
+## Presenters
+[@BenyaminKeshavarz](https://github.com/BenyaminKeshavarz)  بنیامین کشاورز 
+
+[@CipherChaos](https://github.com/CipherChaos) آرین بلندی
+
+
+ملیکا قصاب نژاد
+
