@@ -70,10 +70,48 @@ h1 em{font-style:normal;color:var(--c4)}
   padding:5px 11px;border-radius:999px}
 .chip.plain{background:#F1F5F9;color:var(--soft)}
 .foot{margin-top:14px;font-size:11px;color:var(--muted);line-height:1.9}
+
+
+/* ---------- QR ---------- */
+.qr{
+  display:inline-flex;flex-direction:column;align-items:center;gap:9px;
+  text-decoration:none;color:inherit;margin-bottom:clamp(16px,3.5vw,24px);
+}
+.qr-box{
+  width:clamp(84px,22vw,104px);height:clamp(84px,22vw,104px);
+  padding:8px;border-radius:13px;background:#fff;border:1px solid var(--line);
+  box-shadow:0 12px 26px -20px rgba(15,23,42,.6);transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s;
+}
+.qr:hover .qr-box{transform:translateY(-2px);border-color:#BFDBFE}
+.qr-box svg{width:100%;height:100%;display:block}
+.qr-cap{font-size:10.5px;font-weight:600;color:var(--muted);letter-spacing:.02em;line-height:1.7}
+
+/* ---------- HYPERJUMP LOADER ---------- */
+.loader{
+  position:fixed;inset:0;z-index:90;background:#000;overflow:hidden;
+  opacity:0;pointer-events:none;transition:opacity .22s ease;
+}
+.loader.on{opacity:1;pointer-events:auto}
+.loader canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.loader-cap{
+  position:absolute;left:0;right:0;bottom:max(26px, env(safe-area-inset-bottom));
+  text-align:center;font-size:11.5px;font-weight:600;letter-spacing:.05em;
+  color:rgba(219,234,254,.62);opacity:0;transition:opacity .5s ease .4s;
+}
+.loader.on .loader-cap{opacity:1}
+.loader-white{position:absolute;inset:0;background:#fff;opacity:0;will-change:opacity}
+@media (prefers-reduced-motion: reduce){
+  .loader{display:none}
+}
 </style>
 </head>
 <body>
 <main class="wrap">
+  <a class="qr" href="https://cipherchaos.github.io/imdb-data-mining-lecture/" aria-label="باز کردن نسخه‌ی آنلاین ارائه">
+    <span class="qr-box"><svg viewBox="0 0 33 33" shape-rendering="crispEdges" role="img" aria-label="QR"><path d="M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM10 0h1v1h-1zM11 0h1v1h-1zM12 0h1v1h-1zM13 0h1v1h-1zM18 0h1v1h-1zM19 0h1v1h-1zM20 0h1v1h-1zM22 0h1v1h-1zM23 0h1v1h-1zM26 0h1v1h-1zM27 0h1v1h-1zM28 0h1v1h-1zM29 0h1v1h-1zM30 0h1v1h-1zM31 0h1v1h-1zM32 0h1v1h-1zM0 1h1v1h-1zM6 1h1v1h-1zM9 1h1v1h-1zM11 1h1v1h-1zM12 1h1v1h-1zM13 1h1v1h-1zM14 1h1v1h-1zM15 1h1v1h-1zM16 1h1v1h-1zM17 1h1v1h-1zM18 1h1v1h-1zM20 1h1v1h-1zM22 1h1v1h-1zM26 1h1v1h-1zM32 1h1v1h-1zM0 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM8 2h1v1h-1zM11 2h1v1h-1zM12 2h1v1h-1zM13 2h1v1h-1zM16 2h1v1h-1zM18 2h1v1h-1zM19 2h1v1h-1zM20 2h1v1h-1zM21 2h1v1h-1zM26 2h1v1h-1zM28 2h1v1h-1zM29 2h1v1h-1zM30 2h1v1h-1zM32 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM8 3h1v1h-1zM9 3h1v1h-1zM11 3h1v1h-1zM14 3h1v1h-1zM16 3h1v1h-1zM17 3h1v1h-1zM20 3h1v1h-1zM22 3h1v1h-1zM24 3h1v1h-1zM26 3h1v1h-1zM28 3h1v1h-1zM29 3h1v1h-1zM30 3h1v1h-1zM32 3h1v1h-1zM0 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM6 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM13 4h1v1h-1zM15 4h1v1h-1zM17 4h1v1h-1zM18 4h1v1h-1zM19 4h1v1h-1zM20 4h1v1h-1zM21 4h1v1h-1zM23 4h1v1h-1zM26 4h1v1h-1zM28 4h1v1h-1zM29 4h1v1h-1zM30 4h1v1h-1zM32 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM9 5h1v1h-1zM11 5h1v1h-1zM12 5h1v1h-1zM13 5h1v1h-1zM14 5h1v1h-1zM15 5h1v1h-1zM16 5h1v1h-1zM18 5h1v1h-1zM20 5h1v1h-1zM26 5h1v1h-1zM32 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM27 6h1v1h-1zM28 6h1v1h-1zM29 6h1v1h-1zM30 6h1v1h-1zM31 6h1v1h-1zM32 6h1v1h-1zM8 7h1v1h-1zM14 7h1v1h-1zM15 7h1v1h-1zM20 7h1v1h-1zM21 7h1v1h-1zM24 7h1v1h-1zM0 8h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM10 8h1v1h-1zM13 8h1v1h-1zM14 8h1v1h-1zM15 8h1v1h-1zM17 8h1v1h-1zM22 8h1v1h-1zM23 8h1v1h-1zM24 8h1v1h-1zM26 8h1v1h-1zM27 8h1v1h-1zM28 8h1v1h-1zM29 8h1v1h-1zM30 8h1v1h-1zM0 9h1v1h-1zM4 9h1v1h-1zM7 9h1v1h-1zM9 9h1v1h-1zM10 9h1v1h-1zM11 9h1v1h-1zM12 9h1v1h-1zM16 9h1v1h-1zM19 9h1v1h-1zM20 9h1v1h-1zM21 9h1v1h-1zM23 9h1v1h-1zM26 9h1v1h-1zM27 9h1v1h-1zM29 9h1v1h-1zM30 9h1v1h-1zM32 9h1v1h-1zM0 10h1v1h-1zM3 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM7 10h1v1h-1zM9 10h1v1h-1zM10 10h1v1h-1zM11 10h1v1h-1zM15 10h1v1h-1zM16 10h1v1h-1zM22 10h1v1h-1zM24 10h1v1h-1zM28 10h1v1h-1zM30 10h1v1h-1zM31 10h1v1h-1zM3 11h1v1h-1zM7 11h1v1h-1zM9 11h1v1h-1zM11 11h1v1h-1zM14 11h1v1h-1zM15 11h1v1h-1zM19 11h1v1h-1zM20 11h1v1h-1zM21 11h1v1h-1zM22 11h1v1h-1zM24 11h1v1h-1zM25 11h1v1h-1zM28 11h1v1h-1zM29 11h1v1h-1zM30 11h1v1h-1zM0 12h1v1h-1zM2 12h1v1h-1zM3 12h1v1h-1zM6 12h1v1h-1zM8 12h1v1h-1zM11 12h1v1h-1zM17 12h1v1h-1zM18 12h1v1h-1zM19 12h1v1h-1zM20 12h1v1h-1zM23 12h1v1h-1zM24 12h1v1h-1zM27 12h1v1h-1zM28 12h1v1h-1zM29 12h1v1h-1zM31 12h1v1h-1zM0 13h1v1h-1zM1 13h1v1h-1zM3 13h1v1h-1zM4 13h1v1h-1zM5 13h1v1h-1zM7 13h1v1h-1zM10 13h1v1h-1zM14 13h1v1h-1zM15 13h1v1h-1zM16 13h1v1h-1zM18 13h1v1h-1zM19 13h1v1h-1zM20 13h1v1h-1zM21 13h1v1h-1zM23 13h1v1h-1zM26 13h1v1h-1zM30 13h1v1h-1zM31 13h1v1h-1zM32 13h1v1h-1zM0 14h1v1h-1zM1 14h1v1h-1zM2 14h1v1h-1zM3 14h1v1h-1zM6 14h1v1h-1zM7 14h1v1h-1zM8 14h1v1h-1zM11 14h1v1h-1zM13 14h1v1h-1zM14 14h1v1h-1zM24 14h1v1h-1zM25 14h1v1h-1zM26 14h1v1h-1zM27 14h1v1h-1zM31 14h1v1h-1zM0 15h1v1h-1zM2 15h1v1h-1zM3 15h1v1h-1zM4 15h1v1h-1zM5 15h1v1h-1zM8 15h1v1h-1zM13 15h1v1h-1zM14 15h1v1h-1zM16 15h1v1h-1zM18 15h1v1h-1zM20 15h1v1h-1zM21 15h1v1h-1zM22 15h1v1h-1zM23 15h1v1h-1zM25 15h1v1h-1zM26 15h1v1h-1zM30 15h1v1h-1zM0 16h1v1h-1zM1 16h1v1h-1zM3 16h1v1h-1zM6 16h1v1h-1zM7 16h1v1h-1zM8 16h1v1h-1zM11 16h1v1h-1zM12 16h1v1h-1zM17 16h1v1h-1zM22 16h1v1h-1zM23 16h1v1h-1zM24 16h1v1h-1zM25 16h1v1h-1zM27 16h1v1h-1zM28 16h1v1h-1zM32 16h1v1h-1zM0 17h1v1h-1zM4 17h1v1h-1zM7 17h1v1h-1zM8 17h1v1h-1zM9 17h1v1h-1zM10 17h1v1h-1zM11 17h1v1h-1zM12 17h1v1h-1zM14 17h1v1h-1zM16 17h1v1h-1zM17 17h1v1h-1zM18 17h1v1h-1zM19 17h1v1h-1zM23 17h1v1h-1zM26 17h1v1h-1zM27 17h1v1h-1zM29 17h1v1h-1zM30 17h1v1h-1zM32 17h1v1h-1zM0 18h1v1h-1zM1 18h1v1h-1zM2 18h1v1h-1zM3 18h1v1h-1zM6 18h1v1h-1zM11 18h1v1h-1zM12 18h1v1h-1zM13 18h1v1h-1zM15 18h1v1h-1zM17 18h1v1h-1zM20 18h1v1h-1zM21 18h1v1h-1zM22 18h1v1h-1zM24 18h1v1h-1zM25 18h1v1h-1zM26 18h1v1h-1zM27 18h1v1h-1zM28 18h1v1h-1zM30 18h1v1h-1zM31 18h1v1h-1zM0 19h1v1h-1zM4 19h1v1h-1zM5 19h1v1h-1zM11 19h1v1h-1zM16 19h1v1h-1zM19 19h1v1h-1zM21 19h1v1h-1zM22 19h1v1h-1zM24 19h1v1h-1zM25 19h1v1h-1zM27 19h1v1h-1zM28 19h1v1h-1zM29 19h1v1h-1zM30 19h1v1h-1zM31 19h1v1h-1zM2 20h1v1h-1zM3 20h1v1h-1zM5 20h1v1h-1zM6 20h1v1h-1zM7 20h1v1h-1zM8 20h1v1h-1zM9 20h1v1h-1zM11 20h1v1h-1zM14 20h1v1h-1zM16 20h1v1h-1zM18 20h1v1h-1zM20 20h1v1h-1zM22 20h1v1h-1zM24 20h1v1h-1zM25 20h1v1h-1zM28 20h1v1h-1zM29 20h1v1h-1zM31 20h1v1h-1zM32 20h1v1h-1zM0 21h1v1h-1zM1 21h1v1h-1zM2 21h1v1h-1zM4 21h1v1h-1zM5 21h1v1h-1zM8 21h1v1h-1zM9 21h1v1h-1zM13 21h1v1h-1zM15 21h1v1h-1zM17 21h1v1h-1zM18 21h1v1h-1zM19 21h1v1h-1zM20 21h1v1h-1zM23 21h1v1h-1zM26 21h1v1h-1zM29 21h1v1h-1zM32 21h1v1h-1zM0 22h1v1h-1zM2 22h1v1h-1zM6 22h1v1h-1zM7 22h1v1h-1zM10 22h1v1h-1zM12 22h1v1h-1zM14 22h1v1h-1zM15 22h1v1h-1zM16 22h1v1h-1zM18 22h1v1h-1zM20 22h1v1h-1zM21 22h1v1h-1zM29 22h1v1h-1zM30 22h1v1h-1zM31 22h1v1h-1zM0 23h1v1h-1zM2 23h1v1h-1zM3 23h1v1h-1zM5 23h1v1h-1zM8 23h1v1h-1zM11 23h1v1h-1zM12 23h1v1h-1zM13 23h1v1h-1zM15 23h1v1h-1zM18 23h1v1h-1zM19 23h1v1h-1zM21 23h1v1h-1zM24 23h1v1h-1zM25 23h1v1h-1zM26 23h1v1h-1zM27 23h1v1h-1zM29 23h1v1h-1zM30 23h1v1h-1zM31 23h1v1h-1zM32 23h1v1h-1zM0 24h1v1h-1zM5 24h1v1h-1zM6 24h1v1h-1zM8 24h1v1h-1zM10 24h1v1h-1zM11 24h1v1h-1zM12 24h1v1h-1zM13 24h1v1h-1zM15 24h1v1h-1zM17 24h1v1h-1zM20 24h1v1h-1zM22 24h1v1h-1zM23 24h1v1h-1zM24 24h1v1h-1zM25 24h1v1h-1zM26 24h1v1h-1zM27 24h1v1h-1zM28 24h1v1h-1zM31 24h1v1h-1zM8 25h1v1h-1zM10 25h1v1h-1zM14 25h1v1h-1zM19 25h1v1h-1zM20 25h1v1h-1zM23 25h1v1h-1zM24 25h1v1h-1zM28 25h1v1h-1zM30 25h1v1h-1zM32 25h1v1h-1zM0 26h1v1h-1zM1 26h1v1h-1zM2 26h1v1h-1zM3 26h1v1h-1zM4 26h1v1h-1zM5 26h1v1h-1zM6 26h1v1h-1zM11 26h1v1h-1zM12 26h1v1h-1zM14 26h1v1h-1zM15 26h1v1h-1zM18 26h1v1h-1zM20 26h1v1h-1zM21 26h1v1h-1zM22 26h1v1h-1zM23 26h1v1h-1zM24 26h1v1h-1zM26 26h1v1h-1zM28 26h1v1h-1zM30 26h1v1h-1zM31 26h1v1h-1zM0 27h1v1h-1zM6 27h1v1h-1zM8 27h1v1h-1zM13 27h1v1h-1zM18 27h1v1h-1zM19 27h1v1h-1zM20 27h1v1h-1zM21 27h1v1h-1zM23 27h1v1h-1zM24 27h1v1h-1zM28 27h1v1h-1zM29 27h1v1h-1zM30 27h1v1h-1zM31 27h1v1h-1zM0 28h1v1h-1zM2 28h1v1h-1zM3 28h1v1h-1zM4 28h1v1h-1zM6 28h1v1h-1zM8 28h1v1h-1zM9 28h1v1h-1zM10 28h1v1h-1zM12 28h1v1h-1zM14 28h1v1h-1zM15 28h1v1h-1zM18 28h1v1h-1zM19 28h1v1h-1zM22 28h1v1h-1zM24 28h1v1h-1zM25 28h1v1h-1zM26 28h1v1h-1zM27 28h1v1h-1zM28 28h1v1h-1zM29 28h1v1h-1zM32 28h1v1h-1zM0 29h1v1h-1zM2 29h1v1h-1zM3 29h1v1h-1zM4 29h1v1h-1zM6 29h1v1h-1zM8 29h1v1h-1zM9 29h1v1h-1zM10 29h1v1h-1zM12 29h1v1h-1zM13 29h1v1h-1zM15 29h1v1h-1zM16 29h1v1h-1zM18 29h1v1h-1zM19 29h1v1h-1zM20 29h1v1h-1zM21 29h1v1h-1zM23 29h1v1h-1zM24 29h1v1h-1zM25 29h1v1h-1zM28 29h1v1h-1zM29 29h1v1h-1zM30 29h1v1h-1zM31 29h1v1h-1zM32 29h1v1h-1zM0 30h1v1h-1zM2 30h1v1h-1zM3 30h1v1h-1zM4 30h1v1h-1zM6 30h1v1h-1zM8 30h1v1h-1zM11 30h1v1h-1zM14 30h1v1h-1zM20 30h1v1h-1zM21 30h1v1h-1zM26 30h1v1h-1zM27 30h1v1h-1zM30 30h1v1h-1zM0 31h1v1h-1zM6 31h1v1h-1zM10 31h1v1h-1zM12 31h1v1h-1zM13 31h1v1h-1zM16 31h1v1h-1zM20 31h1v1h-1zM21 31h1v1h-1zM22 31h1v1h-1zM25 31h1v1h-1zM26 31h1v1h-1zM28 31h1v1h-1zM29 31h1v1h-1zM30 31h1v1h-1zM0 32h1v1h-1zM1 32h1v1h-1zM2 32h1v1h-1zM3 32h1v1h-1zM4 32h1v1h-1zM5 32h1v1h-1zM6 32h1v1h-1zM8 32h1v1h-1zM9 32h1v1h-1zM10 32h1v1h-1zM13 32h1v1h-1zM17 32h1v1h-1zM22 32h1v1h-1zM23 32h1v1h-1zM24 32h1v1h-1zM25 32h1v1h-1zM27 32h1v1h-1zM31 32h1v1h-1z" fill="#0F172A"/></svg></span>
+    <span class="qr-cap">اسکن کنید تا ارائه روی گوشی باز شود</span>
+  </a>
+
   <div class="bar" aria-hidden="true"></div>
 
   <span class="eyebrow">درس داده‌کاوی · تحلیل مجموعه داده</span>
@@ -84,7 +122,7 @@ h1 em{font-style:normal;color:var(--c4)}
   </p>
 
   <div class="actions">
-    <a class="btn btn-main" href="imdb-datamining-presentation.html">
+    <a class="btn btn-main" id="viewBtn" href="imdb-datamining-presentation.html">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.4v13.2L19 12z"/></svg>
       مشاهده ارائه
     </a>
@@ -108,5 +146,221 @@ h1 em{font-style:normal;color:var(--c4)}
     <p class="foot">ارائه ۲۰ اسلایدی با نسبت ۱۶:۹ · فایل دانلودی PDF آماده‌ی چاپ است.</p>
   </div>
 </main>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <canvas id="warp"></canvas>
+  <div class="loader-cap">در حال آماده‌سازی ارائه…</div>
+  <div class="loader-white" id="warpWhite"></div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ------------------------------------------------------------------
+     TIMING (ms) — one timeline object drives the whole sequence
+     ------------------------------------------------------------------ */
+  const T = {
+    calm:  1400,   // phase 1 · quiet galaxy, slow drift
+    warp:  1500,   // phase 2 · fly in, FOV opens up
+    white:  420,   // phase 3 · white-out ramp (finishes with the warp)
+    hold:   300    // phase 4 · hold white before the reveal
+  };
+
+  /* scene constants */
+  const N        = Math.min(window.innerWidth, window.innerHeight) < 700 ? 1200 : 2200;
+  const DEPTH    = 2400;   // how far back a star is born, in "z" units
+  const FOV_CALM = 75;     // ° at rest
+  const FOV_WARP = 95;     // ° at peak — widens the projection into streaks
+  const SPD_CALM = 90;     // z units / s while calm
+  const SPD_WARP = 5600;   // z units / s at peak
+
+  const btn    = document.getElementById("viewBtn");
+  const loader = document.getElementById("loader");
+  const white  = document.getElementById("warpWhite");
+  const cv     = document.getElementById("warp");
+  if (!btn || !loader || !white || !cv) return;
+
+  const deckURL = btn.getAttribute("href");
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const ctx = cv.getContext("2d", { alpha: false });
+
+  let W = 0, H = 0, CX = 0, CY = 0, fRef = 1, LIMIT = 1;
+
+  /* fixed pool — never allocated inside the frame loop.
+     kx/ky hold direction × screen-radius × spawn-depth, so the projected
+     radius is simply |k| / z: it grows as the star approaches, which is
+     the outward rush of a warp jump. */
+  const kx = new Float32Array(N), ky = new Float32Array(N);
+  const kz = new Float32Array(N), kmin = new Float32Array(N);
+
+  let running = false, navigated = false, t0 = 0, last = 0, raf = 0, safety = 0;
+
+  function resize(){
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = cv.clientWidth  || window.innerWidth;
+    H = cv.clientHeight || window.innerHeight;
+    cv.width  = Math.round(W * dpr);
+    cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    CX = W / 2; CY = H / 2;
+    fRef = (H * 0.5) / Math.tan(FOV_CALM * Math.PI / 360);
+    LIMIT = Math.hypot(W, H) * 0.78;    // recycle once a star leaves the frame
+  }
+
+  /* place a star: even coverage of the screen, denser toward the core */
+  function spawn(i, deep){
+    const a  = Math.random() * Math.PI * 2;
+    const r  = 8 + Math.pow(Math.random(), 0.7) * Math.max(W, H) * 0.55;
+    const z  = deep ? DEPTH * (0.55 + Math.random() * 0.45) : DEPTH;
+    kx[i] = Math.cos(a) * r * z;
+    ky[i] = Math.sin(a) * r * z;
+    kz[i] = z;
+    kmin[i] = Math.max(1.2, Math.hypot(kx[i], ky[i]) / LIMIT);
+  }
+
+  function seed(){ for (let i = 0; i < N; i++) spawn(i, true); }
+
+  function advance(dt, speed){
+    const dz  = speed * dt;
+    const rot = speed < 300 ? 0.045 * dt : 0;       // gentle swirl while calm
+    const c = Math.cos(rot), s = Math.sin(rot);
+    for (let i = 0; i < N; i++){
+      kz[i] -= dz;
+      if (kz[i] <= kmin[i]){ spawn(i, false); continue; }
+      if (rot){
+        const x = kx[i], y = ky[i];
+        kx[i] = x * c - y * s;
+        ky[i] = x * s + y * c;
+      }
+    }
+  }
+
+  function draw(fov, speed){
+    ctx.globalCompositeOperation = "source-over";
+    ctx.fillStyle = "#000";
+    ctx.fillRect(0, 0, W, H);
+    ctx.globalCompositeOperation = "lighter";
+
+    const f    = (H * 0.5) / Math.tan(fov * Math.PI / 360);
+    const kk   = f / fRef;                                // FOV widening
+    const tail = Math.min(0.075 * speed, 1200);           // streak length in z
+    const lw   = 1 + Math.min(speed / SPD_WARP, 1) * 0.9;
+
+    ctx.lineWidth = lw;
+
+    /* one batched path for all streaks */
+    ctx.strokeStyle = "rgba(176,208,255,0.55)";
+    ctx.beginPath();
+    for (let i = 0; i < N; i++){
+      const z = kz[i];
+      const s1 = kk / z;
+      const x = CX + kx[i] * s1;
+      if (x < -90 || x > W + 90) continue;
+      const y = CY + ky[i] * s1;
+      if (y < -90 || y > H + 90) continue;
+      const s2 = kk / (z + tail);
+      ctx.moveTo(CX + kx[i] * s2, CY + ky[i] * s2);
+      ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+
+    /* heads of the stars closest to the lens */
+    ctx.beginPath();
+    for (let i = 0; i < N; i++){
+      const z = kz[i];
+      if (z > 900) continue;
+      const s1 = kk / z;
+      const x = CX + kx[i] * s1, y = CY + ky[i] * s1;
+      if (x < -24 || x > W + 24 || y < -24 || y > H + 24) continue;
+      const r = 0.55 + 2.1 * (1 - z / 900);
+      ctx.moveTo(x + r, y);
+      ctx.arc(x, y, r, 0, 6.2832);
+    }
+    ctx.fillStyle = "rgba(255,255,255,0.9)";
+    ctx.fill();
+
+    ctx.globalCompositeOperation = "source-over";
+  }
+
+  function frame(now){
+    if (!running) return;
+    raf = requestAnimationFrame(frame);
+    if (!t0){ t0 = now; last = now; }
+    const el = now - t0;
+    const dt = Math.min((now - last) / 1000, 0.05);
+    last = now;
+
+    const warpEnd = T.calm + T.warp;
+
+    let speed = SPD_CALM, fov = FOV_CALM;
+    if (el > T.calm){
+      const tw = Math.min((el - T.calm) / T.warp, 1);
+      const e  = tw * tw;                                 // ease-in
+      speed = SPD_CALM + (SPD_WARP - SPD_CALM) * e;
+      fov   = FOV_CALM + (FOV_WARP - FOV_CALM) * e;
+    }
+
+    advance(dt, speed);
+    draw(fov, speed);
+
+    const wStart = warpEnd - T.white;
+    if (el > wStart){
+      const w = Math.min((el - wStart) / T.white, 1);
+      white.style.opacity = (w * w).toFixed(3);
+    }
+
+    if (!navigated && el >= warpEnd - 80){
+      navigated = true;
+      go();
+    }
+  }
+
+  function warm(){
+    /* pull the deck down while the animation covers the wait */
+    try { fetch(deckURL, { cache: "force-cache" }); } catch (e) {}
+    try {
+      const l = document.createElement("link");
+      l.rel = "prefetch"; l.href = deckURL;
+      document.head.appendChild(l);
+    } catch (e) {}
+  }
+
+  function go(){
+    clearTimeout(safety);
+    window.location.href = deckURL;
+  }
+
+  btn.addEventListener("click", function(e){
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button > 0) return;
+    if (reduced) return;                     // reduced motion: navigate at once
+    e.preventDefault();
+    if (running) return;
+    running = true;
+
+    warm();
+    loader.classList.add("on");
+    resize();
+    seed();
+    requestAnimationFrame(frame);
+    window.addEventListener("resize", resize);
+
+    /* watchdog: never leave the visitor on a white screen */
+    safety = setTimeout(function(){
+      if (navigated) return;
+      navigated = true;
+      go();
+    }, T.calm + T.warp + 2500);
+
+    setTimeout(function(){
+      if (!navigated) return;                // only reached if we never left
+      white.style.opacity = 0;
+      loader.classList.remove("on");
+      running = false;
+      cancelAnimationFrame(raf);
+    }, T.calm + T.warp + 7000);
+  });
+})();
+</script>
 </body>
 </html>
