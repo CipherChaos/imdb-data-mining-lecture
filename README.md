@@ -4,6 +4,14 @@
 
 `imdb-datamining-presentation.html` is a single, self-contained 20-slide deck in Farsi (RTL). All charts are hand-built inline SVG — no chart libraries, no build step — and every number on every slide is computed from the CSV, not hardcoded by hand.
 
+## Pages
+
+| File | Purpose |
+| --- | --- |
+| `index.html` | Landing page — «مشاهده ارائه» opens the deck, «دانلود ارائه» downloads the PDF |
+| `imdb-datamining-presentation.html` | The 20-slide deck (desktop + mobile, RTL keyboard and swipe) |
+| `imdb-datamining-presentation.pdf` | 20-page PDF, ready to print or submit |
+
 ## Usage
 
 Open `imdb-datamining-presentation.html` in any modern browser. Navigate with the arrow keys (RTL-aware), the dots or the bottom pill; the URL hash tracks the current slide (`#slide-N`).

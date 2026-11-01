@@ -9,6 +9,7 @@ desktop.ini
 
 # generated exports & scratch files
 *.pdf
+!imdb-datamining-presentation.pdf
 *.log
 /screenshots/
 /tmp/

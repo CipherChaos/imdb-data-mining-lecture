@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>داده کاوی سینما — ارائه درس داده‌کاوی</title>
+<meta name="description" content="ارائه‌ی درس داده‌کاوی با تحلیل مجموعه داده‌ی IMDb Top 1000 — مشاهده آنلاین یا دانلود فایل PDF.">
+<meta name="theme-color" content="#1E40AF">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --c2:#DBEAFE; --c3:#3B82F6; --c4:#1E40AF; --c5:#0F172A;
+  --soft:#475569; --muted:#94A3B8; --line:#E2E8F0;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  min-height:100vh; min-height:100dvh;
+  font-family:'Vazirmatn',system-ui,sans-serif; color:var(--c5);
+  background:
+    radial-gradient(760px 520px at 82% -12%,#EFF6FF,transparent 62%),
+    radial-gradient(620px 420px at 8% 108%,#F5F9FF,transparent 60%),
+    #FFFFFF;
+  display:grid; place-items:center;
+  padding:clamp(22px,5vw,40px) clamp(16px,4vw,24px);
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{width:100%;max-width:600px;text-align:center}
+
+.bar{height:4px;border-radius:999px;background:linear-gradient(90deg,#3B82F6,#1E40AF,#0F172A);
+  margin:0 0 clamp(26px,6vw,40px)}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:11.5px;font-weight:700;color:var(--c4);letter-spacing:.02em;
+  background:var(--c2);padding:6px 12px;border-radius:999px;margin-bottom:16px;
+}
+.eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--c3)}
+
+h1{font-size:clamp(30px,7.4vw,46px);font-weight:900;letter-spacing:-.03em;line-height:1.2}
+h1 em{font-style:normal;color:var(--c4)}
+.lead{margin-top:14px;font-size:clamp(12.5px,3.4vw,15px);line-height:1.95;color:var(--soft)}
+
+.actions{margin-top:clamp(26px,5.5vw,34px);display:grid;gap:11px}
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:16px 20px;border-radius:14px;
+  font-size:clamp(13.5px,3.6vw,15px);font-weight:800;text-decoration:none;
+  transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,border-color .25s,background .25s;
+}
+.btn svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;flex:0 0 auto}
+.btn:active{transform:scale(.985)}
+.btn-main{background:linear-gradient(160deg,#3B82F6,#1E40AF);color:#fff;
+  box-shadow:0 18px 34px -20px rgba(30,64,175,.9)}
+.btn-ghost{background:#fff;color:var(--c4);border:1px solid var(--line);
+  box-shadow:0 10px 26px -20px rgba(15,23,42,.5)}
+@media (hover:hover){
+  .btn-main:hover{box-shadow:0 26px 44px -20px rgba(30,64,175,1)}
+  .btn-ghost:hover{border-color:#BFDBFE;background:#F8FBFF}
+}
+
+.alt{margin-top:13px;font-size:11.5px;color:var(--muted)}
+.alt a{color:var(--soft);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px}
+.alt a:hover{color:var(--c4);border-color:#BFDBFE}
+
+.meta{margin-top:clamp(26px,5.5vw,36px);padding-top:20px;border-top:1px solid var(--line)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.chip{font-size:11px;font-weight:700;color:var(--c4);background:var(--c2);
+  padding:5px 11px;border-radius:999px}
+.chip.plain{background:#F1F5F9;color:var(--soft)}
+.foot{margin-top:14px;font-size:11px;color:var(--muted);line-height:1.9}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="bar" aria-hidden="true"></div>
+
+  <span class="eyebrow">درس داده‌کاوی · تحلیل مجموعه داده</span>
+  <h1>داده کاوی <em>سینما</em></h1>
+  <p class="lead">
+    کاوش آماری و بصری در ۱٬۰۰۰ فیلم برتر <span dir="ltr">IMDb</span>؛ از پاک‌سازی داده و توزیع‌ها تا
+    همبستگی امتیاز، محبوبیت و فروش در بازه ۲۰۰۶ تا ۲۰۱۶.
+  </p>
+
+  <div class="actions">
+    <a class="btn btn-main" href="imdb-datamining-presentation.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.4v13.2L19 12z"/></svg>
+      مشاهده ارائه
+    </a>
+    <a class="btn btn-ghost" href="imdb-datamining-presentation.pdf" download>
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 4v11"/><path d="M7.5 11.5 12 16l4.5-4.5"/><path d="M5 20h14"/>
+      </svg>
+      دانلود ارائه (PDF)
+    </a>
+  </div>
+  <p class="alt">یا دریافت فایل اسلایدها — <a href="imdb-datamining-presentation.html" download>HTML مستقل</a></p>
+
+  <div class="meta">
+    <div class="chips">
+      <span class="chip">بنیامین کشاورز</span>
+      <span class="chip">ملیکا قصاب‌نژاد</span>
+      <span class="chip">آرین بلندی</span>
+      <span class="chip plain">استاد: فرزانه استاداکبری</span>
+      <span class="chip plain">۸:۰۰ – ۱۰:۳۰</span>
+    </div>
+    <p class="foot">ارائه ۲۰ اسلایدی با نسبت ۱۶:۹ · فایل دانلودی PDF آماده‌ی چاپ است.</p>
+  </div>
+</main>
+</body>
+</html>
